@@ -57,15 +57,15 @@ public class ContaBanco {
 		if (tp == "CC") {
 			setTipo(tp);
 			setSaldo(50);
-			System.out.println("Conta aberta " + getDono() + " com sucesso!");
+			System.out.println("Conta de " + getDono() + " aberta com sucesso!");
 			setStatus(true);
 		} else if (tp == "CP") {
 			setTipo(tp);
 			setSaldo(150);
-			System.out.println("Conta aberta com sucesso!");
+			System.out.println("Conta de " + getDono() + " aberta com sucesso!");
 			setStatus(true);
 		} else
-			System.out.println("Digite um tipo de conta válido: CC ou CP.");
+			System.out.println("Digite um tipo de conta válida: CC ou CP.");
 
 	}
 
@@ -74,8 +74,6 @@ public class ContaBanco {
 			System.out.println("Conta já fechada!");
 		} else if (getSaldo() > 0) {
 			System.out.println("Não é possível fechar com saldo em conta.");
-		} else if (getSaldo() < 0) {
-			System.out.println("Não é possível fehcar com saldo negativo.");
 		} else {
 			setStatus(false);
 			System.out.println("Conta de " + getDono() + " fechada com sucesso!");
@@ -90,10 +88,12 @@ public class ContaBanco {
 	}
 
 	public void sacar(double dep) {
-		if (getStatus()) {
+		if (getStatus() && dep <= getSaldo()) {
 			setSaldo(getSaldo() - dep);
-			System.out.println("Saque de R$ " + (String.format("%.2f", dep)) + " realizado com sucesso"  );
-		} else
+			System.out.println("Saque de R$ " + (String.format("%.2f", dep)) + " realizado com sucesso!"  );
+		} else if (dep > getSaldo()){
+			System.out.println("Saldo insuficiente para saque!");
+		}else
 			System.out.println("Não é possível sacar com a conta fechada.");
 	}
 
@@ -107,9 +107,9 @@ public class ContaBanco {
 	}
 
 	public String toString() {
-		return "\n" + "---------------------" + "\n" + "Número da conta: " + getConta() + "\n" + "Tipo da conta: "
+		return   "---------------------" + "\n" + "Número da conta: " + getConta() + "\n" + "Tipo da conta: "
 				+ getTipo() + "\n" + "Dono da conta: " + getDono() + "\n" + "Saldo em conta: " + getSaldo() + "\n"
-				+ "Status da conta: " + getStatus();
+				+ "Status da conta: " + getStatus() + "\n";
 
 	}
 }

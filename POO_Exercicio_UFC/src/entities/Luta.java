@@ -46,11 +46,13 @@ public class Luta {
 			setAprovada(true);
 			setDesafiado(l1);
 			setDesafiante(l2);
-			System.out.println(l2.apresentar());
 			
-		} else setAprovada(false);
-			setDesafiado(null);
+		} else {
+			setDesafiado (null);
 			setDesafiante(null);
+			System.out.println("Descoberto!");
+		}
+				
 			
 	}
 	
@@ -58,23 +60,27 @@ public class Luta {
 		
 			if (getAprovada()) {
 
-			getDesafiado().apresentar();
-			getDesafiante().apresentar();
+			System.out.println(getDesafiado().apresentar() + "\n");
+			System.out.println(getDesafiante().apresentar() + "\n");
 			
-			int vencedor = random.nextInt(2);
+			int vencedor = random.nextInt(3);
 			
+			System.out.println(vencedor);
 			switch(vencedor) {
 				case 0:
 					desafiado.empatarLuta();
 					desafiante.empatarLuta();
+					System.out.println("Ambos empataram");
 					break;
 				case 1:
 					desafiado.ganharLuta();
 					desafiante.perderLuta();
+					System.out.println(desafiado.getNome() + " é o vencedor do confronto!");
 					break;
 				case 2:
 					desafiado.perderLuta();
 					desafiante.ganharLuta();
+					System.out.println(desafiante.getNome() + "é o vencedor do confronto!");
 					break;
 				default:
 					System.out.println("Erro na aplicação.");

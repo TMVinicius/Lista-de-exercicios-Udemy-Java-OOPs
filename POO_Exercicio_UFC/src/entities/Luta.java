@@ -50,7 +50,6 @@ public class Luta {
 		} else {
 			setDesafiado (null);
 			setDesafiante(null);
-			System.out.println("Descoberto!");
 		}
 				
 			
@@ -65,7 +64,6 @@ public class Luta {
 			
 			int vencedor = random.nextInt(3);
 			
-			System.out.println(vencedor);
 			switch(vencedor) {
 				case 0:
 					desafiado.empatarLuta();
@@ -81,9 +79,6 @@ public class Luta {
 					desafiado.perderLuta();
 					desafiante.ganharLuta();
 					System.out.println(desafiante.getNome() + "é o vencedor do confronto!");
-					break;
-				default:
-					System.out.println("Erro na aplicação.");
 					break;
 			}
 

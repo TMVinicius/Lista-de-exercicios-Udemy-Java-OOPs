@@ -18,12 +18,8 @@ public class ExercicioUFC {
 		Luta l = new Luta();
 		
 		l.marcarLuta(L[0], L[1]);
-		System.out.println(l.getAprovada());
-
 		l.Lutar();
-
-
+		System.out.println(l.getDesafiado().status() + "\n" + l.getDesafiante().status());
 		
 	}
-
 }

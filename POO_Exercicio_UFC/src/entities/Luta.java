@@ -62,26 +62,57 @@ public class Luta {
 			System.out.println(getDesafiado().apresentar() + "\n");
 			System.out.println(getDesafiante().apresentar() + "\n");
 			
-			int vencedor = random.nextInt(3);
+			int vencedor = random.nextInt(4);
 			
-			switch(vencedor) {
-				case 0:
-					desafiado.empatarLuta();
-					desafiante.empatarLuta();
-					System.out.println("Ambos empataram");
-					break;
-				case 1:
+			if (desafiado.getPeso() > desafiante.getPeso()) {
+				switch(vencedor) {
+				case 0, 1:
 					desafiado.ganharLuta();
 					desafiante.perderLuta();
-					System.out.println(desafiado.getNome() + " é o vencedor do confronto!");
 					break;
+				
 				case 2:
 					desafiado.perderLuta();
 					desafiante.ganharLuta();
-					System.out.println(desafiante.getNome() + "é o vencedor do confronto!");
 					break;
+				case 3:
+					desafiado.empatarLuta();
+					desafiante.empatarLuta();
+					System.out.println("A luta terminou em empate!");
+					break;
+				}
+			} else if (desafiado.getPeso() < desafiado.getPeso()) {
+				switch(vencedor) {
+				case 0,1:
+					desafiado.perderLuta();
+					desafiante.ganharLuta();
+					break;
+				case 2:
+					desafiado.ganharLuta();
+					desafiante.perderLuta();
+					break;
+				case 3:
+					desafiado.empatarLuta();
+					desafiante.empatarLuta();
+					System.out.println("A luta terminou em empate!");
+					break;
+				}
+			} else { 
+				switch (vencedor) {
+				case 0:
+					desafiado.ganharLuta();
+					desafiante.perderLuta();
+					break;
+				case 1:
+					desafiado.perderLuta();
+					desafiante.ganharLuta();
+					break;
+				case 2,3:
+					desafiado.empatarLuta();
+					desafiante.empatarLuta();
+					System.out.println("A luta terminou em empate!");
+				}	
 			}
-
 		} else System.out.println("A luta não foi aprovada!");
 	}
 	

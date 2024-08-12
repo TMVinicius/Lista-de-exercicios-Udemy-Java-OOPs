@@ -8,7 +8,7 @@ public class ExercicioUFC {
 		
 		Lutador[] L = new Lutador[6];
 
-		L[0] = new Lutador("Charles Olivera", "Brasileiro", 1.78, 70.0, 34, 9, 0);
+		L[0] = new Lutador("Charles Olivera", "Brasileiro", 1.78, 71.0, 34, 9, 0);
 		L[1] = new Lutador("Dustin Poirier", "Americano", 1.75, 70.0, 29, 7, 3);
 		L[2] = new Lutador("Israel Adesanya", "Nigeriano", 1.93, 84, 24, 3, 0);
 		L[3] = new Lutador("Robert Whittaker", "Australiano", 1.83, 84, 25, 1, 0);
@@ -21,5 +21,6 @@ public class ExercicioUFC {
 		l.Lutar();
 		System.out.println(l.getDesafiado().status() + "\n" + l.getDesafiante().status());
 		
+
 	}
 }

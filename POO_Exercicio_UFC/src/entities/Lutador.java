@@ -110,6 +110,7 @@ public class Lutador {
 
 	public void ganharLuta() {
 		setVitorias(getVitorias() + 1);
+		System.out.println("O " + getNome() + " é o vencedor do confronto!");
 	}
 
 	public void perderLuta() {
